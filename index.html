@@ -21,9 +21,42 @@
 
     <script type="text/javascript">
       const test = $("#newtest").html();
-      console.log(test);
+      console.log(test); // undefined (before initialization)
       //   const test = getElementById("newtest");
       //   const test = $(".test3").html();     // find class
+    </script>
+    <!-- <div id="newtest">Get element in jQuery</div> -->
+
+    <div class="updated">Test 1</div>
+    <div class="updated">Test 2</div>
+    <p class="updated">Test 3</p>
+    <p class="updated">Test 4</p>
+
+    <img src="#" alt="image_one" />
+    <img src="#" alt="image_two" title="awesome_image" />
+
+    <script type="text/javascript">
+      var updated1 = $(".updated"); // array from 3 elements
+      console.log(updated1);
+
+      var updated2 = $("div.updated"); // array from 2 elements
+      console.log(updated2);
+
+      for (var i = 0; i < updated2.length; i++) {
+        updated2[i].style.color = "red";
+        // updated2.get(i).style.color = "red";
+      }
+
+      //   setTimeout("$('p.updated').get(0).style.color = 'purple'", 1500);
+      setTimeout("$('p.updated')[0].style.color = 'green'", 2000);
+    </script>
+
+    <script type="text/javascript">
+      var test10 = $("div");
+      console.log(test10.length);
+
+      var img = $("img[title]"); // выберет все img, у которых есть title
+      console.log(img.length);  // один эл-т
     </script>
   </body>
 </html>
