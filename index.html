@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+    <!-- <script type="module" src="./jquery.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="test" onclick="$('#test').hide()">HIDE TEST</div>
+    <!-- <div id="test" onclick="jQuery('#test').hide()">HIDE TEST</div> -->
+
+    <script type="text/javascript">
+      const str = "      str   ";
+      console.log(str);
+      console.log("$.trim(str)");
+    </script>
+
+    <div id="newtest">Get element in jQuery</div>
+
+    <script type="text/javascript">
+      const test = $("#newtest").html();
+      console.log(test);
+      //   const test = getElementById("newtest");
+      //   const test = $(".test3").html();     // find class
+    </script>
+  </body>
+</html>
