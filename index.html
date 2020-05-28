@@ -6,6 +6,21 @@
     <title>jQuery</title>
     <!-- <script type="module" src="./jquery.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- FORM -->
+    <script type="text/javascript">
+      function valid() {
+        var state = $("input[name = 'gender']:checked").val();
+        console.log(state);
+        if (!state)
+          return $("#message").html(
+            "<font style='color:red'>Choose your gender</font><br />"
+          );
+
+        if (state === "male" || state === "female") $("#img").show();
+      }
+    </script>
+    <!-- FORM -->
   </head>
   <body>
     <div id="test" onclick="$('#test').hide()">HIDE TEST</div>
@@ -56,7 +71,48 @@
       console.log(test10.length);
 
       var img = $("img[title]"); // выберет все img, у которых есть title
-      console.log(img.length);  // один эл-т
+      console.log(img.length); // один эл-т
     </script>
+
+    <ul id="menu">
+      <li><a href="">Ссылка 1</a></li>
+      <li><a href="">Ссылка 2</a></li>
+      <li><a href="">Ссылка 3</a></li>
+      <li><a href="">Ссылка 4</a></li>
+      <li><a href="">Ссылка 5</a></li>
+    </ul>
+    <a href="">Ссылка 6</a>
+
+    <script type="text/javascript">
+      var link1 = $("#menu li a:first");
+      var link2 = $("#menu li a[0]"); // not the same
+      var link3 = $("#menu li a:eq(2)");
+
+      console.log(link1.html()); // Ссылка 1
+      console.log(link2.html()); // undefined
+      console.log(link3.html()); // Ссылка 3
+    </script>
+
+    <!-- FORM -->
+    <hr />
+    <form name="form" id="form">
+      <label for="female">Female</label>
+      <input type="radio" id="female" name="gender" value="female" />
+
+      <label for="male">Male</label>
+      <input type="radio" id="male" name="gender" value="male" />
+
+      <p id="message"></p>
+      <img
+        id="img"
+        src="https://s.yimg.com/ny/api/res/1.2/12UU2JphAsbxTTDca.7QFQ--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9MTA4MDtoPTcxNg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2019-11/7b5b5330-112b-11ea-a77f-7c019be7ecae"
+        width="300"
+        height="auto"
+        style="display: none;"
+      />
+
+      <input type="button" id="done" value="done" onclick="return valid()" />
+    </form>
+    <!-- FORM -->
   </body>
 </html>
