@@ -17,7 +17,16 @@
             "<font style='color:red'>Choose your gender</font><br />"
           );
 
+        $("#message").hide();
+
         if (state === "male" || state === "female") $("#img").show();
+
+        var test = $("div, p");
+        var test1 = $("#menu ul li a, p");
+        // var test = $("div");
+        // test += $("p");
+        console.log(test);
+        console.log(test1);
       }
     </script>
     <!-- FORM -->
@@ -113,6 +122,69 @@
 
       <input type="button" id="done" value="done" onclick="return valid()" />
     </form>
+    <br />
     <!-- FORM -->
+
+    <img src="#" alt="Изображение" title="Изображение" /> <br />
+    <img src="#" /> <br />
+    <img src="#" /> <br />
+    <img class="img_class" src="#" alt="Изображение" title="Изображение" />
+    <br />
+
+    <script type="text/javascript">
+      $(":not(img[alt])").attr("alt", "jQuery");
+      // $("img").not("img[alt]").attr("alt", "jQuery");
+
+      var elements = $("img");
+      // console.log(elements);
+      var text;
+      for (var i = 0; i < elements.length; i++) text += elements[i].alt + "\n";
+      for (var i = 0; i < elements.length; i++)
+        text += elements[i].className + "\n";
+      console.log(text);
+    </script>
+
+    <!-- ========================================= -->
+    <!-- <div id="div">TEXT</div>
+
+    <style>
+      .div_1 {
+        background-color: purple;
+      }
+      .div_2 {
+        background-color: teal;
+      }
+    </style>
+    <script type="text/javascript">
+      var div = prompt("Введите 1 или 2");
+      while (div != 1 && div != 2) {
+        prompt("Input value 1 or 2");
+        div = prompt("Input number 1 or 2");
+      }
+
+      $("#div").attr("class", "div_" + div);
+      // console.log($("#div").get(0).className);
+      console.log($("#div")[0].className); 
+    </script> -->
+    <!-- ========================================= -->
+
+    <!-- <div id="div">Block</div>
+
+    <script>
+      $("#div").css("font-size", "25px");
+      $("#div").css("color", "orange");
+      $("#div").css("width", "250px");
+      $("#div").css("background-color", function () {
+        return "teal";
+      });
+
+      $("#div").css("height", function () {
+        // var height = prompt("Input height value: ");
+        // return height + "px";
+        return $(this).width();
+      });
+    </script> -->
+
+    
   </body>
 </html>
