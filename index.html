@@ -370,7 +370,7 @@
     </script>
     <hr />
     <!-- ====================================================== -->
-    <div>
+    <!-- <div>
       <a href="#" id="my_hide"  onclick="return false"
         >Hide comments</a
       >
@@ -404,6 +404,166 @@
         $("#my_show").bind("click", showComments);
       });
     </script>
+    <hr /> -->
+    <!-- ====================================================== -->
+    <!-- <div>
+      <a href="#" id="my_hide" onclick="return false">Hide comments</a>
+      <a href="#" id="my_show" style="display: none;" onclick="return false"
+        >Show comments</a
+      >
+    </div>
+
+    <div id="jj_comments">
+      <p>Comment_1</p>
+      <p>Comment_2</p>
+      <p>Comment_3</p>
+    </div>
+
+    <script type="text/javascript">
+      function hideComments() {
+        $("#jj_comments").slideUp(1000, function () {
+          $("#my_hide").hide();
+          $("#my_show").show();
+        });
+      }
+
+      function showComments() {
+        console.log("Show comments func");
+        $("#jj_comments").slideDown(1000, function () {
+          $("#my_hide").show();
+          $("#my_show").hide();
+        });
+      }
+
+      $(document).ready(function () {
+        $("#my_hide").bind("click", hideComments);
+        $("#my_show").bind("click", showComments);
+      });
+    </script>
+    <hr /> -->
+
+    <!-- ====================================================== -->
+    <!-- <div>
+      <a href="#" id="my_hide" onclick="return false">Hide comments</a>
+      <a href="#" id="my_show" style="display: none;" onclick="return false"
+        >Show comments</a
+      >
+    </div>
+
+    <div id="jj_comments">
+      <p>Comment_1</p>
+      <p>Comment_2</p>
+      <p>Comment_3</p>
+    </div>
+
+    <script type="text/javascript">
+      function hideComments() {
+        $("#jj_comments").fadeOut(1000, function () {
+          $("#my_hide").hide();
+          $("#my_show").show();
+        });
+      }
+
+      function showComments() {
+        console.log("Show comments func");
+        $("#jj_comments").fadeIn(1000, function () {
+          $("#my_hide").show();
+          $("#my_show").hide();
+        });
+      }
+
+      $(document).ready(function () {
+        $("#my_hide").bind("click", hideComments);
+        $("#my_show").bind("click", showComments);
+      });
+    </script>
+    <hr /> -->
+    <!-- ====================================================== -->
+    <!-- <hr />
+    <p
+      id="test_p"
+      style="
+        display: block;
+        background-color: orange;
+        width: 50px;
+        height: 20px;
+      "
+    >
+      <img
+        src="https://media.licdn.com/dms/image/C560BAQHMnA03XDdf3w/company-logo_200_200/0?e=2159024400&v=beta&t=C7KMOtnrJwGrMXmgIk2u1B8a7VRfgxMwXng9cdP9kZk"
+        width="50px"
+        height="50px"
+        alt="image_test_p"
+        title="image_test_p"
+        id="img_test_p"
+      />
+    </p>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#img_test_p").bind("click", function (event) {
+          $(event.target).parent().css("margin", "auto");
+
+          $(event.target).animate(
+            {
+              width: event.target.width * 1.2,
+              height: event.target.height * 1.2,
+            },
+            1000
+          );
+        });
+      });
+    </script> -->
+    <!-- ====================================================== -->
+    <hr />
+    <p>Generate random RGB color</p>
+    <div id="id_buttons_ts" style="display: flex; flex-wrap: wrap;">
+      <br />
+    </div>
+    <button id="add_block" style="display: block;">Add block</button>
+
+    <style>
+      .rgb_block {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 20px;
+        background-color: purple;
+        color: white;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        margin: 4px;
+      }
+    </style>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#add_block").click(function () {
+          var randName = getNumber(0, 255);
+
+          $("#id_buttons_ts").prepend(
+            "<div class='rgb_block " + randName + "'>" + randName + "</div>"
+          );
+
+          $("." + randName).css(
+            "background",
+            "#" +
+              getNumber(0, 9) +
+              getNumber(0, 9) +
+              getNumber(0, 9) +
+              getNumber(0, 9) +
+              getNumber(0, 9) +
+              getNumber(0, 9)
+          );
+        });
+
+        function getNumber(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+      });
+    </script>
+    <!-- ====================================================== -->
+    <!-- ====================================================== -->
     <!-- ====================================================== -->
   </body>
 </html>
