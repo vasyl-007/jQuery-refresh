@@ -318,9 +318,57 @@
     </script> -->
 
     <!-- ====================================================== -->
+    <hr />
+    <div id="comments">
+      <p>Comment_1</p>
+      <p>Comment_2</p>
+      <p>Comment_3</p>
+      <p>Comment_4</p>
+    </div>
 
-    
+    <form
+      action="#"
+      method="post"
+      id="form_1"
+      name="form_1"
+      style="display: none;"
+      onsubmit="return false"
+    >
+      <textarea
+        id="textarea"
+        name="field"
+        cols="30"
+        rows="10"
+        style="display: block;"
+      ></textarea>
+      <input
+        type="submit"
+        id="input_done"
+        name="send"
+        value="Add your comment 000"
+      />
+    </form>
 
+    <a href="#" onclick="return false" id="add_comment">Add comment</a>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(document).on("click", "#add_comment", function () {
+          var form = $("#form_1[name='form_1']");
+          form.css("display", "block");
+
+          $("#add_comment").replaceWith(form);
+        });
+        $(document).on("click", "input[id='input_done']", function () {
+          var comment = $("textarea[name='field']").val();
+          console.log("Please wait, comments are loading...");
+          $("<p>" + comment + "</p>").appendTo($("div#comments"));
+          console.log($("#form_1")[0]);
+          $("#form_1")[0].reset();
+        });
+      });
+    </script>
+    <hr />
     <!-- ====================================================== -->
   </body>
 </html>
