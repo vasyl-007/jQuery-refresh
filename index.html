@@ -277,7 +277,48 @@
       }
     </script> -->
     <!-- ====================================================== -->
-    <br />
+    <!-- <br />
+    <div style="height: 50px; width: 50px; background-color: red;"></div>
+    <div style="height: 50px; width: 50px; background-color: green;"></div>
+    <div style="height: 50px; width: 50px; background-color: orange;"></div>
+
+    <script type="text/javascript">
+      function inSize(event) {
+        console.log("You clicked on the box");
+        console.log(
+          Number(
+            event.target.style.width.substring(
+              0,
+              event.target.style.width.length - 2
+            )
+          )
+        );
+        var cubeWidth = parseInt(event.target.style.width);
+        event.target.style.width = cubeWidth + 5 + "px";
+        if (parseInt(event.target.style.width) == 90) {
+          $(event.target).unbind();
+        }
+        console.log("after undind");
+        $(
+          "<p>Координаты мышки при нажатии: Х - " +
+            event.screenX +
+            ", Y - " +
+            event.screenY +
+            " </p>"
+        ).insertAfter($("div:last"));
+      }
+
+      $(document).ready(function () {
+        $("div").bind("click", inSize);
+      });
+
+      $(document).on("click", "p", function() {
+        console.log("Just clicked on the coords X / Y element")
+      })
+    </script> -->
+
+    <!-- ====================================================== -->
+
     
 
     <!-- ====================================================== -->
