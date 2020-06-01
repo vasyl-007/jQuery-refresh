@@ -370,5 +370,40 @@
     </script>
     <hr />
     <!-- ====================================================== -->
+    <div>
+      <a href="#" id="my_hide"  onclick="return false"
+        >Hide comments</a
+      >
+      <a href="#" id="my_show" style="display: none;" onclick="return false">Show comments</a>
+    </div>
+
+    <div id="jj_comments">
+      <p>Comment_1</p>
+      <p>Comment_2</p>
+      <p>Comment_3</p>
+    </div>
+
+    <script type="text/javascript">
+      function hideComments() {
+        $("#jj_comments").hide(1000, function () {
+          $("#my_hide").hide();
+          $("#my_show").show();
+        });
+      }
+
+      function showComments() {
+        console.log("Show comments func");
+        $("#jj_comments").show(1000, function () {
+          $("#my_hide").show();
+          $("#my_show").hide();
+        });
+      }
+
+      $(document).ready(function () {
+        $("#my_hide").bind("click", hideComments);
+        $("#my_show").bind("click", showComments);
+      });
+    </script>
+    <!-- ====================================================== -->
   </body>
 </html>
