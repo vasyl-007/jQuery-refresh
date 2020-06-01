@@ -564,45 +564,19 @@
     </script>
     <!-- ====================================================== -->
     <!-- MODAL WINDOW -->
-
-    <!-- <form
-      action="#"
-      method="post"
-      id="modal-form"
-      class="modal-form"
-      name="modal-form"
-      onsubmit="return false"
-      style="display: block;"
-    >
-      <label for="modal-form"
-        >Company
-        <input type="submit" name="input_1" id="input_1" value="company" />
-        <br />
-      </label>
-      <input type="text" name="input_2" id="input_2" value="address" /> <br />
-      <input type="text" name="input_3" id="input_3" value="phone" /> <br />
-      <button type="submit">Submit</button>
-    </form>
-
-    <a href="#login-form" rel="modal:open">Onen modal</a>
-
-    <a href="#ex5" data-modal>Open a DOM element</a>
-    <a href="ajax.html" data-modal>Open an AJAX modal</a>
-
-    <script type="text/javascript">
-      $("#modal-form").modal();
-    </script> -->
-    <!-- ====================================================== -->
     <hr />
     <a href="#" onclick="return false" id="add_address">Add new address</a>
-    <form id="form_1" name="form_1" style="display: none;">
+    <form id="form_1" name="form_1">
       <label for="input_1">Company</label>
       <input
         type="text"
         id="input_1"
         name="input_1"
         value=""
+        <!--
         data-method="serializeArray"
+        --
+      />
       />
       <br />
 
@@ -612,7 +586,10 @@
         id="input_2"
         name="input_2"
         value=""
+        <!--
         data-method="serializeArray"
+        --
+      />
       />
       <br />
 
@@ -622,7 +599,10 @@
         id="input_3"
         name="input_3"
         value=""
+        <!--
         data-method="serializeArray"
+        --
+      />
       />
       <br />
 
@@ -645,22 +625,20 @@
           //   .each(function () {
           //     $data[this.name] = $(this).val();
           //   });
-
-          var data = $("#form_1").serializeArray();
-          // переберём каждое значение массива и выведем его в формате имяЭлемента=значение в консоль
-          $.each(data, function () {
-            console.log(this.name + "=" + this.value);
-          });
-
-          $.ajax({
-            url: $(this).parent("#form_1").attr("action"),
-            type: "post",
-            data: $data,
-            success: function (result) {
-              $("#form_result").html(result);
-            },
-          });
-
+          // var data = $("#form_1").serializeArray();
+          // // переберём каждое значение массива и выведем его в формате имяЭлемента=значение в консоль
+          // $.each(data, function () {
+          //   console.log(this.name + "=" + this.value);
+          // });
+          // $.ajax({
+          //   url: $(this).parent("#form_1").attr("action"),
+          //   type: "post",
+          //   data: $data,
+          //   success: function (result) {
+          //     $("#form_result").html(result);
+          //   },
+          // });
+          // ================!!! ===========================
           // $.ajax({
           //   url: "process.php",
           //   type: "post",
@@ -669,15 +647,12 @@
           //     // действия при получения ответа (result) от сервера
           //   },
           // });
-
           // var detail_1 = $("input[name='input_1']").val();
           // var detail_2 = $("input[name='input_2']").val();
           // var detail_3 = $("input[name='input_3']").val();
-
           // console.log(detail_1);
           // var deliveryDetails = [detail_1, detail_2, detail_3];
           // console.log("deliveryDetails: ", deliveryDetails);
-
           // console.log("Please wait, comments are loading...");
           // $("<p>" + deliveryDetails + "</p>").appendTo($("div#comments"));
           // console.log($("#form_1")[0]);
@@ -687,7 +662,65 @@
     </script>
     <hr />
     <!-- ====================================================== -->
+    <script type="text/javascript">
+      // $.fn.serializeObject = function () {
+      //   var obj = {};
 
+      //   var data = $("#form_1").serializeArray();
+
+      //   console.log("data ------- ", data);
+
+      //   // $.each(data, function () {
+      //   //   if (obj[this.name] !== undefined) {
+      //   //     if (!obj[this.name].push) {
+      //   //       obj[this.name] = [obj[this.name]];
+      //   //     }
+      //   //     obj[this.name].push(this.value || "");
+      //   //   } else {
+      //   //     obj[this.name] = this.value || "";
+      //   //   }
+      //   // });
+
+      //   // console.log("obj", obj);
+      //   // return obj;
+      // };
+
+      var data = $("#form_1").serializeArray();
+
+      var fieldValue = $('input[name="input_1"]').val();
+      console.log("fieldValue", fieldValue);
+    </script>
+
+    <!-- ====================================================== -->
+
+    <form>
+      <div><input type="text" name="a" value="1" id="a" /></div>
+      <div><input type="text" name="b" value="2" id="b" /></div>
+      <div><input type="hidden" name="c" value="3" id="c" /></div>
+      <div>
+        <textarea name="d" rows="8" cols="40">4</textarea>
+      </div>
+      <div>
+        <select name="e">
+          <option value="5" selected="selected">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+      </div>
+      <div>
+        <input type="checkbox" name="f" value="8" id="f" />
+      </div>
+      <div>
+        <input type="submit" name="g" value="Submit" id="g" />
+      </div>
+    </form>
+
+    <script type="text/javascript">
+      $("form").submit(function () {
+        console.log($(this).serializeArray());
+        return false;
+      });
+    </script>
     <!-- ====================================================== -->
   </body>
 </html>
