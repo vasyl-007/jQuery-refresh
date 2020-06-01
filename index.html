@@ -185,6 +185,41 @@
       });
     </script> -->
 
-    
+    <!-- ====================================================== -->
+    <!-- <br />
+    <div id="block">
+      Block
+      <p id="parag">Paragraph</p>
+    </div>
+    <script type="text/javascript">
+      console.log("hello world!!! new");
+      alert($("#block").html());
+      alert($("#block").text());
+
+      $("#parag").html("<p>New replaced paragraph</p>");
+    </script> -->
+
+    <!-- ====================================================== -->
+
+    <!-- <br />
+    <div id="tested">
+      <div id="block" style="background-color: teal;">
+        Block
+        <p id="parag">Paragraph</p>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var block = $("#block").clone();
+      block.html("<p>Newest tested paragraph</p>");
+
+      block.css("font-size", "20px");
+      block.css("width", "120px");
+      block.css("background-color", "orange");
+
+      console.log(block[0]);
+
+      $("#tested").append(block);
+    </script> -->
+    <!-- ====================================================== -->
   </body>
 </html>
